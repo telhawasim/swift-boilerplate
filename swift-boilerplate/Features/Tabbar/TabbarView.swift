@@ -11,6 +11,7 @@ struct TabbarView: View {
     
     //MARK: - PROPERTIES -
     
+    //State
     @State private var selectedTab = TabbarType.home
     
     //MARK: - VIEWS -

@@ -9,9 +9,22 @@ import SwiftUI
 
 @main
 struct swift_boilerplateApp: App {
+    
+    //MARK: - PROPERTIES -
+    
+    //StateObject
+    @StateObject private var router: Router = Router()
+    
+    //MARK: - LIFECYCLE -
     var body: some Scene {
         WindowGroup {
-            TabbarView()
+            NavigationStack(path: self.$router.route) {
+                TabbarView()
+                    .navigationDestination(for: Route.self) { route in
+                        self.router.navigationDestination(route)
+                    }
+            }
+            .environmentObject(self.router)
         }
     }
 }

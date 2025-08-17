@@ -28,6 +28,8 @@ struct HomeView: View {
             }
             .padding()
         }
+        .navigationTitle("Home")
+        .navigationBarTitleDisplayMode(.large)
         .refreshable {
             Task {
                 await self.loadUsers()
